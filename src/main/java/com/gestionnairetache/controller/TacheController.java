@@ -20,7 +20,7 @@ public class TacheController {
     @Autowired
     private TacheService tacheService;
 
-    @ApiOperation(value = "Get toutes les tadches", response = Iterable.class, tags = "tache")
+    @ApiOperation(value = "Get toutes les taches", response = Iterable.class, tags = "tache")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Succes"),
             @ApiResponse(responseCode = "404", description = "not found") })
@@ -60,7 +60,7 @@ public class TacheController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Succes"),
             @ApiResponse(responseCode = "404", description = "not found") })
-   @PutMapping(value = "/{id}")
+   @PatchMapping(value = "/{id}")
     public ResponseEntity<TacheDTO> tacheStatus(@PathVariable("id") String id, @RequestParam boolean status) {
         return new ResponseEntity<>(tacheService.completed(id, status), HttpStatus.OK);
     }
